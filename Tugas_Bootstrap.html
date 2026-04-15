@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Annabella Werinussa</title>
+ 
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+ 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+ 
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+    min-height: 100vh;
+  }
+ 
+  /* HEADER */
+  .hero-header {
+    background: linear-gradient(135deg, #6b21a8 0%, #9333ea 60%, #c084fc 100%);
+    color: white;
+    padding: 60px 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  .hero-header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+ 
+  .profile-photo {
+    width: 140px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid rgba(255,255,255,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  .profile-placeholder {
+    width: 140px;
+    height: 170px;
+    border-radius: 20px;
+    border: 4px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin: 0 auto;
+  }
+ 
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+ 
+  .contact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    text-decoration: none;
+  }
+ 
+  /* CARDS */
+  .cv-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(107,33,168,0.08);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  .cv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(107,33,168,0.15);
+  }
+  .card-header-custom {
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    border-bottom: 2px solid #e9d5ff;
+    padding: 16px 24px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #6b21a8;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-icon {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #9333ea, #6b21a8);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+ 
+  /* QUOTE */
+  .quote-box {
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    border-left: 5px solid #9333ea;
+    border-radius: 0 16px 16px 0;
+    padding: 16px 20px;
+    font-style: italic;
+    color: #6b21a8;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+ 
+  /* TIMELINE */
+  .timeline-item {
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-left: 2px solid #e9d5ff;
+  }
+  .timeline-item:last-child {
+    border-left: 2px solid transparent;
+    padding-bottom: 0;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -7px; top: 4px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9333ea, #6b21a8);
+    box-shadow: 0 0 0 3px rgba(147,51,234,0.2);
+  }
+  .timeline-year {
+    display: inline-block;
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    color: #6b21a8;
+    border: 1px solid #ddd6fe;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 50px;
+    margin-bottom: 4px;
+  }
+  .timeline-title {
+    font-weight: 600;
+    color: #3b0764;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  .timeline-sub {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    margin: 0;
+  }
+ 
+  /* SKILL BARS */
+  .skill-label { font-size: 0.85rem; font-weight: 500; color: #3b0764; }
+  .skill-pct { font-size: 0.75rem; color: #9333ea; font-weight: 600; }
+  .progress { height: 8px; border-radius: 4px; background: #f3e8ff; }
+  .progress-bar {
+    background: linear-gradient(to right, #c084fc, #6b21a8);
+    border-radius: 4px;
+  }
+ 
+  /* EXPERIENCE */
+  .exp-card {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 14px;
+    padding: 16px;
+    transition: border-color 0.2s;
+    height: 100%;
+  }
+  .exp-card:hover { border-color: #c084fc; }
+  .exp-icon {
+    font-size: 1.5rem;
+    width: 42px; height: 42px;
+    background: #ede9fe;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .exp-title { font-weight: 600; font-size: 0.88rem; color: #3b0764; margin: 0; }
+  .exp-desc { font-size: 0.8rem; color: #6b7280; margin: 0; line-height: 1.6; }
+  .exp-year {
+    font-size: 0.72rem; font-weight: 600; color: #9333ea;
+    background: #f5f3ff; border: 1px solid #ddd6fe;
+    padding: 2px 10px; border-radius: 50px;
+    display: inline-block;
+  }
+ 
+  /* PRESTASI */
+  .prestasi-card {
+    border: 2px solid #e9d5ff;
+    border-radius: 14px;
+    padding: 20px;
+    background: white;
+    text-align: center;
+    transition: all 0.2s;
+    height: 100%;
+  }
+  .prestasi-card:hover { border-color: #9333ea; background: #faf5ff; }
+  .prestasi-icon { font-size: 2rem; }
+  .prestasi-title { font-weight: 600; font-size: 0.88rem; color: #3b0764; margin: 8px 0 2px; }
+  .prestasi-sub { font-size: 0.75rem; color: #9ca3af; margin: 0; }
+ 
+  /* FRAMEWORK BANNER */
+  .framework-banner {
+    background: linear-gradient(135deg, #6b21a8, #9333ea);
+    color: white;
+    border-radius: 16px;
+    padding: 16px 24px;
+  }
+  .bs-logo {
+    background: white;
+    color: #6b21a8;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+ 
+  /* FOOTER */
+  footer {
+    background: linear-gradient(135deg, #6b21a8, #9333ea);
+    color: white;
+    text-align: center;
+    padding: 28px 0;
+  }
+  footer a { font-size: 1.3rem; transition: opacity 0.2s; }
+  footer a:hover { opacity: 0.7; }
+ 
+  /* ANIMATIONS */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+ 
+<!-- ===== HERO HEADER ===== -->
+<header class="hero-header">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row align-items-center g-4">
+ 
+      <div class="col-12 col-md-auto text-center">
+        <img src="Ella_foto.jpeg" alt="Foto Annabella" class="profile-photo"
+             onerror="this.outerHTML='<div class=\'profile-placeholder\'>👩‍💻</div>'">
+      </div>
+ 
+      <div class="col text-center text-md-start">
+        <p class="mb-1 text-uppercase" style="letter-spacing:3px; font-size:0.72rem; color:rgba(255,255,255,0.7);">
+          Curriculum Vitae
+        </p>
+        <h1 class="hero-name mb-1">Annabella<br class="d-none d-md-block"> Werinussa</h1>
+        <p class="mb-3" style="color:rgba(255,255,255,0.75); font-size:0.95rem;">
+          <i class="bi bi-mortarboard-fill me-1"></i>
+          S1 Ilmu Komputer &nbsp;·&nbsp; Universitas Pattimura
+        </p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+          <span class="contact-badge"><i class="bi bi-envelope-fill"></i> abellweri16@gmail.com</span>
+          <span class="contact-badge"><i class="bi bi-geo-alt-fill"></i> Ambon, Maluku</span>
+          <span class="contact-badge"><i class="bi bi-phone-fill"></i> 0812345678**</span>
+          <span class="contact-badge"><i class="bi bi-cake2-fill"></i> 16 Februari 2007</span>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</header>
+ 
+<!-- ===== MAIN ===== -->
+<main class="container py-4">
+ 
+  <!-- Quote -->
+  <div class="quote-box mb-4 fade-in-up">
+    <i class="bi bi-quote me-1" style="font-size:1.4rem; color:#c084fc; vertical-align:middle;"></i>
+    Teknologi terus berubah, dan saya ingin tumbuh bersamanya. Sebagai mahasiswa Ilmu Komputer, saya berkomitmen untuk terus belajar, berinovasi, dan menciptakan solusi digital yang tidak hanya cerdas, tetapi juga berdampak bagi kehidupan banyak orang.
+  </div>
+ 
+  <!-- Row 1: Pendidikan + Skill -->
+  <div class="row g-4 mb-4">
+ 
+    <!-- PENDIDIKAN -->
+    <div class="col-12 col-lg-6 fade-in-up delay-1">
+      <div class="cv-card h-100">
+        <div class="card-header-custom">
+          <h5 class="section-title">
+            <div class="section-icon"><i class="bi bi-book-fill"></i></div>
+            Pendidikan
+          </h5>
+        </div>
+        <div class="p-4">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year">2024 – Sekarang</span>
+            <p class="timeline-title">S1 Ilmu Komputer</p>
+            <p class="timeline-sub">Universitas Pattimura</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year">2021 – 2024</span>
+            <p class="timeline-title">SMA Negeri 5 Ambon</p>
+            <p class="timeline-sub">Ambon, Maluku</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year">2018 – 2021</span>
+            <p class="timeline-title">SMP Negeri 9 Ambon</p>
+            <p class="timeline-sub">Ambon, Maluku</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-year">2013 – 2018</span>
+            <p class="timeline-title">SD Kristen Hunuth</p>
+            <p class="timeline-sub">Ambon, Maluku</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- SKILL -->
+    <div class="col-12 col-lg-6 fade-in-up delay-2">
+      <div class="cv-card h-100">
+        <div class="card-header-custom">
+          <h5 class="section-title">
+            <div class="section-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+            Keahlian
+          </h5>
+        </div>
+        <div class="p-4 d-flex flex-column gap-3">
+ 
+          <div>
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-label">HTML & CSS</span><span class="skill-pct">85%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+          </div>
+ 
+          <div>
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-label">Python</span><span class="skill-pct">70%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+          </div>
+ 
+          <div>
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-label">Database MySQL</span><span class="skill-pct">65%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
+          </div>
+ 
+          <div>
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-label">Microsoft Office</span><span class="skill-pct">90%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+          </div>
+ 
+          <div>
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-label">Desain Grafis (Canva/Photoshop)</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+          </div>
+ 
+          <div>
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-label">Teamwork & Komunikasi</span><span class="skill-pct">92%</span>
+            </div>
+            <div class="progress"><div class="progress-bar" style="width:92%"></div></div>
+          </div>
+ 
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <!-- PENGALAMAN -->
+  <div class="cv-card mb-4 fade-in-up delay-3">
+    <div class="card-header-custom">
+      <h5 class="section-title">
+        <div class="section-icon"><i class="bi bi-briefcase-fill"></i></div>
+        Pengalaman
+      </h5>
+    </div>
+    <div class="p-4">
+      <div class="row g-3">
+ 
+        <div class="col-12 col-md-4">
+          <div class="exp-card">
+            <div class="d-flex align-items-start gap-3 mb-2">
+              <div class="exp-icon">🎓</div>
+              <div>
+                <p class="exp-title">Anggota HMIK</p>
+                <span class="exp-year">2025</span>
+              </div>
+            </div>
+            <p class="exp-desc">Berpartisipasi dalam proyek pengembangan website kampus dan membantu koordinasi kegiatan teknologi.</p>
+          </div>
+        </div>
+ 
+        <div class="col-12 col-md-4">
+          <div class="exp-card">
+            <div class="d-flex align-items-start gap-3 mb-2">
+              <div class="exp-icon">💻</div>
+              <div>
+                <p class="exp-title">Proyek CV Online</p>
+                <span class="exp-year">2026</span>
+              </div>
+            </div>
+            <p class="exp-desc">Membuat website pribadi menggunakan HTML & CSS sebagai portofolio digital.</p>
+          </div>
+        </div>
+ 
+        <div class="col-12 col-md-4">
+          <div class="exp-card">
+            <div class="d-flex align-items-start gap-3 mb-2">
+              <div class="exp-icon">🤝</div>
+              <div>
+                <p class="exp-title">Relawan Workshop Komputer</p>
+                <span class="exp-year">2024</span>
+              </div>
+            </div>
+            <p class="exp-desc">Membantu peserta memahami dasar penggunaan software dan pemrograman sederhana.</p>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+ 
+  <!-- PRESTASI -->
+  <div class="cv-card mb-4 fade-in-up delay-4">
+    <div class="card-header-custom">
+      <h5 class="section-title">
+        <div class="section-icon"><i class="bi bi-trophy-fill"></i></div>
+        Prestasi
+      </h5>
+    </div>
+    <div class="p-4">
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="prestasi-card">
+            <div class="prestasi-icon">🏆</div>
+            <p class="prestasi-title">Juara Lomba</p>
+            <p class="prestasi-sub">Kompetisi teknologi</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="prestasi-card">
+            <div class="prestasi-icon">📜</div>
+            <p class="prestasi-title">Sertifikat Pelatihan</p>
+            <p class="prestasi-sub">Pengembangan kompetensi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Framework Banner -->
+  <div class="framework-banner d-flex align-items-center gap-3 flex-wrap mb-4 fade-in-up delay-5">
+    <span class="bs-logo">BS5</span>
+    <div>
+      <p class="fw-semibold mb-0" style="font-size:0.9rem;">Framework: Bootstrap 5</p>
+      <p class="mb-0" style="font-size:0.78rem; opacity:0.75;">Grid system · Components · Utilities · Bootstrap Icons</p>
+    </div>
+    <a href="https://getbootstrap.com" target="_blank" class="ms-auto text-white text-decoration-none" style="font-size:0.78rem; opacity:0.7;">
+      getbootstrap.com <i class="bi bi-arrow-up-right-square"></i>
+    </a>
+  </div>
+ 
+</main>
+ 
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="mb-1 fw-semibold">© 2026 Annabella Florien Werinussa</p>
+  <p class="mb-3" style="font-size:0.8rem; opacity:0.7;">
+    Dibuat dengan <strong>Bootstrap 5</strong> &nbsp;·&nbsp; Universitas Pattimura &nbsp;·&nbsp; Ilmu Komputer
+  </p>
+  <div class="d-flex justify-content-center gap-3">
+    <a href="mailto:abellweri16@gmail.com" class="text-white"><i class="bi bi-envelope-fill"></i></a>
+    <a href="#" class="text-white"><i class="bi bi-github"></i></a>
+    <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+  </div>
+</footer>
+ 
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+</body>
+</html>
+ 
